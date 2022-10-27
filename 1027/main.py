@@ -43,7 +43,7 @@ yp[N-1] = (y[N-1]-y[N-2])/dx
 
 file1="./lesson1.dat"
 with open(file1,mode="w") as f:
-    f.write(f"%x y y_prime\n")
+    f.write("%x y y_prime\n")
     for i in range(N):
         f.write(f"{x[i]:.3f} {y[i]:.3f} {yp[i]:.3f}\n")
 
@@ -66,6 +66,15 @@ def integration(N2):
         Y[i] = Y[i-1]+y[i]*dx
     return x, Y, y
 
-integration(100)
+N2=100
+x,Y,y = integration(N2)
 
 # try to output dat file like above!!
+
+file2="./lesson2.dat"
+with open(file2,mode="w") as f:
+    f.write("%x y Y\n")
+    for i in range(N2):
+        f.write(f"{x[i]:.3f} {y[i]:.3f} {Y[i]:.3f}\n")
+
+

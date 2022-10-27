@@ -36,12 +36,31 @@ for i in range(N):
     y.append(float(data1[i].split()[1]))
     yp.append(float(data1[i].split()[2]))
 
-plt.plot(x,y ,color="b",marker="o",markersize=2.0,linewidth=0.8,label="$sinx$")
-plt.plot(x,yp,color="r",marker="v",markersize=2.0,linewidth=0.8,label="$-cosx$")
-plt.legend()
-plt.show()
+plt.plot(x,y ,color="b",marker="o",markersize=2.0,linewidth=0.8,label="$cosx$")
+plt.plot(x,yp,color="r",marker="v",markersize=2.0,linewidth=0.8,label="$-sinx$")
+#plt.legend()
+#plt.show()
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  lesson.2 : integration <- try
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+file2="./lesson2.dat"
+with open(file2,mode='r') as f:
+    header = f.readline()
+    data2=f.readlines()
 
+N,=np.shape(data2)
+
+x=[]
+y=[]
+Y=[]
+
+for i in range(N):
+    x.append(float(data2[i].split()[0]))
+    y.append(float(data2[i].split()[1]))
+    Y.append(float(data2[i].split()[2]))
+
+#plt.plot(x,y ,color="b",marker="o",markersize=2.0,linewidth=0.8,label="$cos$")
+plt.plot(x,Y,color="g",marker="x",markersize=2.0,linewidth=0.8,label="$sinx$")
+plt.legend()
+plt.show()
