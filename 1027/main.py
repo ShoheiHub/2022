@@ -24,7 +24,7 @@ import numpy as np # numerical module
 #  dy ~ y[i+1] - y[i-1]
 #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-N = 21
+N = 101
 
 xmin= 0
 xmax= 2*np.pi
@@ -66,7 +66,7 @@ def integration(N2):
         Y[i] = Y[i-1]+y[i]*dx
     return x, Y, y
 
-N2=100
+N2=101
 x,Y,y = integration(N2)
 
 # try to output dat file like above!!

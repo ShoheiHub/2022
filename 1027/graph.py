@@ -36,6 +36,7 @@ for i in range(N):
     y.append(float(data1[i].split()[1]))
     yp.append(float(data1[i].split()[2]))
 
+plt.title(f"$lesson1 bibun$")
 plt.plot(x,y ,color="b",marker="o",markersize=2.0,linewidth=0.8,label="$cosx$")
 plt.plot(x,yp,color="r",marker="v",markersize=2.0,linewidth=0.8,label="$-sinx$")
 plt.legend()
@@ -64,6 +65,7 @@ for i in range(N):
     y.append(float(data2[i].split()[1]))
     Y.append(float(data2[i].split()[2]))
 
+plt.title(f"$lesson2 sekibun$")
 plt.plot(x,y ,color="b",marker="o",markersize=2.0,linewidth=0.8,label="$cos$")
 plt.plot(x,Y,color="g",marker="x",markersize=2.0,linewidth=0.8,label="$sinx$")
 plt.legend()
@@ -71,6 +73,7 @@ plt.savefig(f"lesson2.png")
 plt.clf()
 
 
+plt.title(f"$lesson1&2 overwrite$")
 plt.plot(x,y ,color="b",marker="o",markersize=2.0,linewidth=0.8,label="$cos$")
 plt.plot(x1,yp,color="r",marker="v",markersize=2.0,linewidth=0.8,label="$-sinx$")
 plt.plot(x,Y,color="g",marker="x",markersize=2.0,linewidth=0.8,label="$sinx$")
