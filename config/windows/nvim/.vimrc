@@ -28,19 +28,12 @@ set showmatch
 " シンタックスハイライトの有効化
 syntax on
 
-" シンタックスハイライトのテーマ設定
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-highlight LineNr ctermbg=none
-highlight Folded ctermbg=none
-highlight EndOfBuffer ctermbg=none
-
 " enable mouse
 set mouse=a
 
 " these make to find Capital and Small literal.
 set ignorecase
-set smartcase
+"set sartcase
 
 " インクリメントサーチ
 set incsearch
@@ -58,39 +51,44 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 set clipboard+=unnamed,unnamedplus
 
 
-set smartindent
-" オートインデント
-set tabstop=4
 set autoindent
+"set smartindent
 set expandtab
+set tabstop=4
 set shiftwidth=4
 
 " color scheme
 augroup TransparentBG
-  	autocmd!
-	autocmd Colorscheme * highlight Normal ctermbg=none
-	autocmd Colorscheme * highlight NonText ctermbg=none
-	autocmd Colorscheme * highlight LineNr ctermbg=none
-	autocmd Colorscheme * highlight Folded ctermbg=none
-	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none 
+"  	autocmd!
+"	autocmd Colorscheme * highlight Normal ctermbg=none
+"	autocmd Colorscheme * highlight NonText ctermbg=none
+"	autocmd Colorscheme * highlight LineNr ctermbg=none
+"	autocmd Colorscheme * highlight Folded ctermbg=none
+"	autocmd Colorscheme * highlight EndOfBuffer ctermbg=none 
 augroup END
 color molokai
+highlight lineNr ctermfg=229
 hi Comment ctermfg=102
 hi Visual ctermfg=255
 
 set nocompatible
 set wildmenu
 
-"テキスト
-"highlight Normal ctermbg=none
-"テキスト下の余白
-"highlight NonText ctermbg=none
-"行番号
-"highlight LineNr ctermbg=none
-"コマンドの折りたたみ
-"highlight Folded ctermbg=none
-"ファイルの終わり以降の空白
-"highlight EndOfBuffer ctermbg=none
-"
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+
+"key map <exe>
+function! Pyfkey()
+    let l:name=expand("%")
+    let l:path=expand("%:p:h")
+    :execute "!cd" l:path ";python" l:name
+endfunction
+
+function! Fortfkey()
+    let l:name=expand("%")
+    let l:path=expand("%:p:h")
+    :execute "!cd" l:path ";gfortran" l:name "&& ./a.out"
+endfunction
+
+nmap <F5> :call Pyfkey() <Enter>
+nmap <F6> :call Fortfkey() <Enter>
