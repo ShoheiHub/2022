@@ -10,6 +10,8 @@
 #
 #  author:T.Shohei
 #    data:2022.10.22
+#    data:2022.11.10 modified
+#        replace constant "dx" to variable "dx"
 #---------------------------------------------------------
 
 # <- #(of character ) defines a comment.
@@ -35,19 +37,20 @@ x_new = np.zeros(N)
 x_new[0] = xmin
 for i in range(1,N):
     x_new[i] = x_new[i-1] + 0.5*np.pi*abs( np.cos(x[i]) - np.cos(x[i-1]) )
-
-
-y = np.tan(x_new)
+print(x_new)
+y = np.cos(x_new)
 
 # make empty array
 yp = np.zeros(N)
 
 for i in range(1,N-1):
-    dx = x_new[i+1]-2*x[i]+x[i-1]
-    yp[i] = ( y[i+1]-y[i-1] )/dx*0.5
+    dx1 = x_new[i+1] - x_new[i]
+    dx2 = x_new[i]   - x_new[i-1]
+    print(i,dx1,dx2)
+    yp[i] = ( ( y[i+1]-y[i] )/dx1 + ( y[i]-y[i-1] )/dx2 ) *0.5
 
-yp[0]   = (y[1]  -y[0]  )/dx
-yp[N-1] = (y[N-1]-y[N-2])/dx
+yp[0]   = (y[1]  -y[0]  )/(x_new[1]-x[0])
+yp[N-1] = (y[N-1]-y[N-2])/(x_new[N-1]-x[N-2])
 
 file1="./lesson1.dat"
 with open(file1,mode="w") as f:

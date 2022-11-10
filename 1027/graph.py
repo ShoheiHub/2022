@@ -36,8 +36,11 @@ for i in range(N):
     y.append(float(data1[i].split()[1]))
     yp.append(float(data1[i].split()[2]))
 
-plt.plot(x,y ,color="b",marker="o",markersize=2.0,linewidth=0.8,label="$sinx$")
+plt.plot(x,y ,color="b",marker="o",markersize=2.0,linewidth=0.8,label="$sin$")
 plt.plot(x,yp,color="r",marker="v",markersize=2.0,linewidth=0.8,label="$-cosx$")
+#plt.axes().set_aspect('equal')
+#plt.xlim(x[0],x[N-1])
+#plt.ylim(-2,2)
 plt.legend()
 plt.show()
 
