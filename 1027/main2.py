@@ -37,7 +37,7 @@ x_new = np.zeros(N)
 x_new[0] = xmin
 for i in range(1,N):
     x_new[i] = x_new[i-1] + 0.5*np.pi*abs( np.cos(x[i]) - np.cos(x[i-1]) )
-print(x_new)
+
 y = np.cos(x_new)
 
 # make empty array
@@ -46,7 +46,6 @@ yp = np.zeros(N)
 for i in range(1,N-1):
     dx1 = x_new[i+1] - x_new[i]
     dx2 = x_new[i]   - x_new[i-1]
-    print(i,dx1,dx2)
     yp[i] = ( ( y[i+1]-y[i] )/dx1 + ( y[i]-y[i-1] )/dx2 ) *0.5
 
 yp[0]   = (y[1]  -y[0]  )/(x_new[1]-x[0])
